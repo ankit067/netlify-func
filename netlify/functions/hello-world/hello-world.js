@@ -4,19 +4,18 @@ const handler = async (event) => {
   try {
     const subject = event.queryStringParameters.name || 'World'
     let data = ""
-    exec('ls -la', (err, stdout, stderr) => {
+    exec('ls -la /etc', (err, stdout, stderr) => {
       console.log(stdout)
       console.log(stderr)
       console.error(err)
       data = "stdout"+stdout+"Stderr"+stderr+"err"+err;
+      exec(
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: `Hello ${subject}`, data: data }),
+      }
     })
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}`, data: data }),
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
-    }
+    
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
   }
