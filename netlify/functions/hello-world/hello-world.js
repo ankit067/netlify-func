@@ -9,7 +9,6 @@ const handler = async (event) => {
       console.log(stderr)
       console.error(err)
       data = "stdout"+stdout+"Stderr"+stderr+"err"+err;
-      exec(
       return {
         statusCode: 200,
         body: JSON.stringify({ message: `Hello ${subject}`, data: data }),
