@@ -1,7 +1,13 @@
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+const { exec } = require("child_process");
 const handler = async (event) => {
   try {
     const subject = event.queryStringParameters.name || 'World'
+    exec('ls -la', (err, stdout, stderr) => {
+      console.log(stdout)
+      console.log(stderr)
+      console.error(err)
+    })
     return {
       statusCode: 200,
       body: JSON.stringify({ message: `Hello ${subject}` }),
