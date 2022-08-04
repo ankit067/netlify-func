@@ -3,10 +3,12 @@ const { exec } = require("child_process");
 const handler = async (event) => {
   try {
     const subject = event.queryStringParameters.name || 'World'
+    let data = ""
     exec('ls -la', (err, stdout, stderr) => {
       console.log(stdout)
       console.log(stderr)
       console.error(err)
+      data = "stdout"+stdout+"Stderr"+stderr+"err"+err;
     })
     return {
       statusCode: 200,
