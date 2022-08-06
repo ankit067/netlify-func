@@ -7,7 +7,7 @@ const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:8888
 
 const COOKIE_SECURE = process.env.NODE_ENV !== 'development'
 
-const ENDPOINT = process.env.NODE_ENV === 'development' ? '/.netlify/functions' : '/api'
+const ENDPOINT = '/.netlify/functions'
 
 const { GITHUB_CLIENT_ID } = process.env
 const { GITHUB_CLIENT_SECRET } = process.env
