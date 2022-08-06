@@ -32,6 +32,8 @@ app.get(`${ENDPOINT}/auth/status`, passport.authenticate('jwt', { session: false
   res.json({ email: req.user.email }),
 )
 
+app.post(`${ENDPOINT}/test`, (req, res) => res.json({test: "tested"}))
+
 const handler = serverless(app)
 
 module.exports = { handler }
